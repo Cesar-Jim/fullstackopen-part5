@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNqaW1lbmV6IiwiaWQiOiI1ZGJiMDFhNzhkODk2ODVmMjBhNDhkYWEiLCJpYXQiOjE1NzI4ODE0MjB9.VbHxd0zqqlQhAmShk8qGiUY5U9Xzz5_tzGrLVfeViMc
+
+{
+  "title": "Tests3",
+	"author": "Cesar Jimenez",
+	"url": "www.t3.com",
+	"likes": 7,
+	"userId": "5dbb01a78d89685f20a48daa"
+}
