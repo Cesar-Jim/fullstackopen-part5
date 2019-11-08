@@ -138,6 +138,8 @@ const App = () => {
               handleBlogAddition={handleBlogAddition}
               setMessageType={setMessageType}
               setMessageInfo={setMessageInfo}
+              blogs={blogs}
+              user={user}
             />
           </Togglable>
         </div>

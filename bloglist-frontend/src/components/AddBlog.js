@@ -12,7 +12,8 @@ const AddBlog = ({
   blogs,
   setBlogs,
   setMessageType,
-  setMessageInfo
+  setMessageInfo,
+  user
 }) => {
 
   const addBlog = async e => {
@@ -20,11 +21,13 @@ const AddBlog = ({
 
     try {
       const newBlog = {
+        user,
         title: blogTitle,
         author: blogAuthor,
         url: blogUrl,
         id: blogs.length + 1
       };
+
       await blogService.create(newBlog);
       setBlogs(blogs.concat(newBlog));
       setBlogTitle('');
