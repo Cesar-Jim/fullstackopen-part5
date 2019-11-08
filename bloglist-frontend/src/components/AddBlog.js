@@ -8,8 +8,6 @@ const AddBlog = ({
   setBlogAuthor,
   blogUrl,
   setBlogUrl,
-  blogLikes,
-  setBlogLikes,
   handleBlogAddition,
   blogs,
   setBlogs,
@@ -25,7 +23,6 @@ const AddBlog = ({
         title: blogTitle,
         author: blogAuthor,
         url: blogUrl,
-        likes: blogLikes,
         id: blogs.length + 1
       };
       await blogService.create(newBlog);
@@ -33,7 +30,6 @@ const AddBlog = ({
       setBlogTitle('');
       setBlogAuthor('');
       setBlogUrl('');
-      setBlogLikes(0);
       setMessageType('success');
       setMessageInfo(`Added blog: "${blogTitle}" by ${blogAuthor}.`);
 
@@ -77,14 +73,6 @@ const AddBlog = ({
           id='blog-url'
           value={blogUrl}
           onChange={e => handleBlogAddition(e, setBlogUrl)}
-        />
-        <br />
-        <br />
-        <label htmlFor='blog-likes'>Likes: </label>
-        <input
-          id='blog-likes'
-          value={blogLikes}
-          onChange={e => handleBlogAddition(e, setBlogLikes)}
         />
         <br />
         <br />

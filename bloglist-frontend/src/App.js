@@ -7,7 +7,6 @@ import AddBlog from './components/AddBlog';
 import './App.css';
 import LoginForm from './components/LoginForm';
 import Togglable from './components/Togglable';
-import BlogForm from './components/BlogForm';
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -20,7 +19,6 @@ const App = () => {
   const [blogTitle, setBlogTitle] = useState('');
   const [blogAuthor, setBlogAuthor] = useState('');
   const [blogUrl, setBlogUrl] = useState('');
-  const [blogLikes, setBlogLikes] = useState(0);
 
   const [loginVisible, setLoginVisible] = useState(false);
 
@@ -39,10 +37,13 @@ const App = () => {
     }
   }, []);
 
-  const rows = () => blogs.map(blog => (
+  const rows = () => blogs.sort((blogA, blogB) => blogB.likes - blogA.likes).map(blog => (
     <Blog
       key={blog.id}
-      blog={blog} />
+      blog={blog}
+      setBlogs={setBlogs}
+      user={user}
+    />
   ));
 
   const handleBlogAddition = (e, setter) => {
@@ -112,20 +113,6 @@ const App = () => {
     setUser(null);
   }
 
-  // const loginForm = () => (
-  //   <form onSubmit={handleLogin}>
-  //     <div>
-  //       username
-  //         <input type='text' value={username} name='Username' onChange={({ target }) => setUsername(target.value)}></input>
-  //     </div>
-  //     <div>
-  //       password
-  //       <input type='password' value={password} name='Password' onChange={({ target }) => setPassword(target.value)}></input>
-  //     </div>
-  //     <button type='submit'>login</button>
-  //   </form>
-  // );
-
   return (
     <div>
       <h1>Bloglist</h1>
@@ -147,9 +134,6 @@ const App = () => {
               setBlogAuthor={setBlogAuthor}
               blogUrl={blogUrl}
               setBlogUrl={setBlogUrl}
-              blogLikes={blogLikes}
-              setBlogLikes={setBlogLikes}
-              blogs={blogs}
               setBlogs={setBlogs}
               handleBlogAddition={handleBlogAddition}
               setMessageType={setMessageType}
