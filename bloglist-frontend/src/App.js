@@ -122,7 +122,7 @@ const App = () => {
       {user === null ?
         loginForm() :
         <div>
-          <p>{user.name} logged in {" "} <button onClick={(e) => handleLogout(e)}>logout</button></p>
+          <p>{user.name} logged in {' '} <button onClick={(e) => handleLogout(e)}>logout</button></p>
           <h2>Blogs:</h2>
           <ul>{rows()}</ul>
           <br />

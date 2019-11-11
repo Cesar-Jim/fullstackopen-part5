@@ -1,5 +1,5 @@
-import React from 'react';
-import blogService from '../services/blogs';
+import React from 'react'
+import blogService from '../services/blogs'
 
 const AddBlog = ({
   blogTitle,
@@ -13,7 +13,7 @@ const AddBlog = ({
   setBlogs,
   setMessageType,
   setMessageInfo,
-  user
+  user,
 }) => {
 
   const addBlog = async e => {
