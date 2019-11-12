@@ -10,7 +10,7 @@ const LoginForm = ({
 }) => {
   return (
     <div>
-      <h2>Login</h2>
+      <h2>Credentials</h2>
 
       <form onSubmit={handleSubmit}>
         <div>

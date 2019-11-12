@@ -39,6 +39,7 @@ const App = () => {
 
   const rows = () => blogs.sort((blogA, blogB) => blogB.likes - blogA.likes).map(blog => (
     <Blog
+      className="blog"
       key={blog.id}
       blog={blog}
       setBlogs={setBlogs}
@@ -57,7 +58,7 @@ const App = () => {
     return (
       <div>
         <div style={hideWhenVisible}>
-          <button onClick={() => setLoginVisible(true)}>login</button>
+          <button className="loginButton" onClick={() => setLoginVisible(true)}>login</button>
         </div>
         <div style={showWhenVisible}>
           <LoginForm

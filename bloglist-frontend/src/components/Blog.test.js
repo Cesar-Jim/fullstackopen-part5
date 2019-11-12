@@ -28,8 +28,6 @@ describe('<Blog />', () => {
     component = render(
       <Blog blog={blog} user={user} />
     );
-
-    component.debug();
   });
 
   test('default blog visibility contains title and author', () => {
