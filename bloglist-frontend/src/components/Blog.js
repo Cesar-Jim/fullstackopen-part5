@@ -41,8 +41,8 @@ const Blog = ({ blog, user, setBlogs }) => {
   return (
     <div style={blogStyle}>
       <div>
-        <strong onClick={() => setBlogInfoVisible(!blogInfoVisible)}>{blog.title}</strong>{" "}<em>by {blog.author}</em>
-        <div style={toggleVisibility}>
+        <strong className="clickableTitle" onClick={() => setBlogInfoVisible(!blogInfoVisible)}>{blog.title}</strong>{" "}<em>by {blog.author}</em>
+        <div style={toggleVisibility} className="togglableContent">
           <p>url: <a href={blog.url}>{blog.url}</a></p>
           <p>{likes} likes <button onClick={addLike}>like</button></p>
           <p>added by: {blog.author}</p>
