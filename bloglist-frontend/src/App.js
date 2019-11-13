@@ -19,9 +19,13 @@ const App = () => {
   const username = useField('text');
   const password = useField('password');
 
-  const [blogTitle, setBlogTitle] = useState('');
-  const [blogAuthor, setBlogAuthor] = useState('');
-  const [blogUrl, setBlogUrl] = useState('');
+  // const [blogTitle, setBlogTitle] = useState('');
+  // const [blogAuthor, setBlogAuthor] = useState('');
+  // const [blogUrl, setBlogUrl] = useState('');
+
+  const title = useField('text');
+  const author = useField('text');
+  const url = useField('text');
 
   const [loginVisible, setLoginVisible] = useState(false);
 
@@ -132,12 +136,12 @@ const App = () => {
           <br />
           <Togglable buttonLabel='new blog'>
             <AddBlog
-              blogTitle={blogTitle}
-              setBlogTitle={setBlogTitle}
-              blogAuthor={blogAuthor}
-              setBlogAuthor={setBlogAuthor}
-              blogUrl={blogUrl}
-              setBlogUrl={setBlogUrl}
+              title={title}
+              setBlogTitle={title}
+              author={author}
+              setBlogAuthor={author}
+              url={url}
+              setBlogUrl={url}
               setBlogs={setBlogs}
               handleBlogAddition={handleBlogAddition}
               setMessageType={setMessageType}

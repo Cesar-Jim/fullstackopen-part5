@@ -2,13 +2,9 @@ import React from 'react'
 import blogService from '../services/blogs'
 
 const AddBlog = ({
-  blogTitle,
-  setBlogTitle,
-  blogAuthor,
-  setBlogAuthor,
-  blogUrl,
-  setBlogUrl,
-  handleBlogAddition,
+  title,
+  author,
+  url,
   blogs,
   setBlogs,
   setMessageType,
@@ -22,19 +18,19 @@ const AddBlog = ({
     try {
       const newBlog = {
         user,
-        title: blogTitle,
-        author: blogAuthor,
-        url: blogUrl,
+        title: title.value,
+        author: author.value,
+        url: url.value,
         id: blogs.length + 1
       };
 
       await blogService.create(newBlog);
       setBlogs(blogs.concat(newBlog));
-      setBlogTitle('');
-      setBlogAuthor('');
-      setBlogUrl('');
+      title.reset();
+      author.reset();
+      url.reset();
       setMessageType('success');
-      setMessageInfo(`Added blog: "${blogTitle}" by ${blogAuthor}.`);
+      setMessageInfo(`Added blog: "${title.value}" by ${author.value}.`);
 
       setTimeout(() => {
         setMessageType(null);
@@ -58,24 +54,21 @@ const AddBlog = ({
         <label htmlFor='blog-title'>Title: </label>
         <input
           id='blog-title'
-          value={blogTitle}
-          onChange={e => handleBlogAddition(e, setBlogTitle)}
+          {...title}
         />
         <br />
         <br />
         <label htmlFor='blog-author'>Author: </label>
         <input
           id='blog-author'
-          value={blogAuthor}
-          onChange={e => handleBlogAddition(e, setBlogAuthor)}
+          {...author}
         />
         <br />
         <br />
         <label htmlFor='blog-url'>URL: </label>
         <input
           id='blog-url'
-          value={blogUrl}
-          onChange={e => handleBlogAddition(e, setBlogUrl)}
+          {...url}
         />
         <br />
         <br />
