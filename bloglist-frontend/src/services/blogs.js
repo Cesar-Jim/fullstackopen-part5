@@ -21,9 +21,12 @@ const create = async (newObject, auth) => {
   const config = {
     headers: { Authorization: token }
   }
+
   setToken(auth);
 
   const response = await axios.post(baseUrl, newObject, config);
+
+  token = config.headers.Authorization;
   return response.data;
 };
 
@@ -33,16 +36,19 @@ const update = (id, newObject) => {
   }
 
   const response = axios.put(`${baseUrl}/${id}`, newObject, config);
+  token = config.headers.Authorization;
   return response.then(response => response.data);
 }
 
 const deleteBlog = async (id, auth) => {
+
   const config = {
     headers: { Authorization: token }
   }
   setToken(auth);
 
   const response = await axios.delete(`${baseUrl}/${id}`, config);
+  token = config.headers.Authorization;
   return response.data;
 };
 

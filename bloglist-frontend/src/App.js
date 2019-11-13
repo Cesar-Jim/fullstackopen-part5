@@ -84,8 +84,8 @@ const App = () => {
     e.preventDefault();
     try {
       const user = await loginService.login({
-        username: username.value,
-        password: password.value,
+        username: username.input.value,
+        password: password.input.value,
       });
 
       window.localStorage.setItem('loggedBlogappUser', JSON.stringify(user));

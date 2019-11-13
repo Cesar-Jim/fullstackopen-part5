@@ -18,9 +18,9 @@ const AddBlog = ({
     try {
       const newBlog = {
         user,
-        title: title.value,
-        author: author.value,
-        url: url.value,
+        title: title.input.value,
+        author: author.input.value,
+        url: url.input.value,
         id: blogs.length + 1
       };
 
@@ -30,7 +30,7 @@ const AddBlog = ({
       author.reset();
       url.reset();
       setMessageType('success');
-      setMessageInfo(`Added blog: "${title.value}" by ${author.value}.`);
+      setMessageInfo(`Added blog: "${title.input.value}" by ${author.input.value}.`);
 
       setTimeout(() => {
         setMessageType(null);

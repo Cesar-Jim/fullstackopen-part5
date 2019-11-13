@@ -28,7 +28,6 @@ blogsRouter.get('/:id', async (req, res, next) => {
 // CREATE A BLOG
 blogsRouter.post('/', async (req, res, next) => {
   const body = req.body;
-  console.log('body Cesar:', body);
 
   // const token = getTokenFrom(req);
 
