@@ -16,13 +16,11 @@ const App = () => {
   const [messageInfo, setMessageInfo] = useState(null);
   const [user, setUser] = useState(null);
 
+  // user:
   const username = useField('text');
   const password = useField('password');
 
-  // const [blogTitle, setBlogTitle] = useState('');
-  // const [blogAuthor, setBlogAuthor] = useState('');
-  // const [blogUrl, setBlogUrl] = useState('');
-
+  // blog:
   const title = useField('text');
   const author = useField('text');
   const url = useField('text');

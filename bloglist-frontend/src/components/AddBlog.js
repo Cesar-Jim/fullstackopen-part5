@@ -54,21 +54,21 @@ const AddBlog = ({
         <label htmlFor='blog-title'>Title: </label>
         <input
           id='blog-title'
-          {...title}
+          {...title.input}
         />
         <br />
         <br />
         <label htmlFor='blog-author'>Author: </label>
         <input
           id='blog-author'
-          {...author}
+          {...author.input}
         />
         <br />
         <br />
         <label htmlFor='blog-url'>URL: </label>
         <input
           id='blog-url'
-          {...url}
+          {...url.input}
         />
         <br />
         <br />

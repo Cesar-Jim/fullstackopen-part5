@@ -13,11 +13,11 @@ const LoginForm = ({
       <form onSubmit={handleSubmit}>
         <div>
           username
-          <input {...username} />
+          <input {...username.input} />
         </div>
         <div>
           password
-          <input {...password} />
+          <input {...password.input} />
         </div>
         <button type="submit">login</button>
       </form>
@@ -27,8 +27,6 @@ const LoginForm = ({
 
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  // handleUsernameChange: PropTypes.func.isRequired,
-  // handlePasswordChange: PropTypes.func.isRequired,
   username: PropTypes.object.isRequired,
   password: PropTypes.object.isRequired
 }
