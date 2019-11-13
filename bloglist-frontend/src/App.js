@@ -8,13 +8,16 @@ import './App.css';
 import LoginForm from './components/LoginForm';
 import Togglable from './components/Togglable';
 
+import { useField } from './hooks';
+
 const App = () => {
   const [blogs, setBlogs] = useState([]);
   const [messageType, setMessageType] = useState(null);
   const [messageInfo, setMessageInfo] = useState(null);
   const [user, setUser] = useState(null);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+
+  const username = useField('text');
+  const password = useField('password');
 
   const [blogTitle, setBlogTitle] = useState('');
   const [blogAuthor, setBlogAuthor] = useState('');
@@ -64,8 +67,8 @@ const App = () => {
           <LoginForm
             username={username}
             password={password}
-            handleUsernameChange={({ target }) => setUsername(target.value)}
-            handlePasswordChange={({ target }) => setPassword(target.value)}
+            handleUsernameChange={username}
+            handlePasswordChange={password}
             handleSubmit={handleLogin}
           />
           <button onClick={() => setLoginVisible(false)}>cancel</button>
@@ -79,16 +82,16 @@ const App = () => {
     e.preventDefault();
     try {
       const user = await loginService.login({
-        username,
-        password,
+        username: username.value,
+        password: password.value,
       });
 
       window.localStorage.setItem('loggedBlogappUser', JSON.stringify(user));
 
       blogService.setToken(user.token);
       setUser(user);
-      setUsername('');
-      setPassword('');
+      username.reset();
+      password.reset();
 
       setMessageType('success');
       setMessageInfo(`Welcome ${user.name}!`);
